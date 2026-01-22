@@ -40,12 +40,14 @@ class ArchitecturalFetcher:
         # Internal helper to perform the 3-layer fetch
         try:
             # 1. Fetch Parcel Base (Layer 0) - PIN identity and Centroid
-            # Note: This provides a reliable PIN mapping if direct query is preferred later
             p0 = {"where": f"PIN = '{pin}'", "outFields": "PIN,ZONING,ADDRESS", "f": "json"}
             res0 = requests.get(LAYER_0_URL, params=p0).json()
             base_data = {}
             if res0.get("features"):
                 base_data = {f"base_{k.lower()}": v for k, v in res0["features"][0]["attributes"].items()}
+
+            if not base_data:
+                return {"error": "PIN not found in King County Authority (Layer 0)"}
 
             # 2. Fetch Technical Attributes and Geometry (Layer 2)
             p2 = {"where": f"PIN = '{pin}'", "outFields": "*", "f": "json", "returnGeometry": "true"}
@@ -53,13 +55,14 @@ class ArchitecturalFetcher:
             
             parcel_data = {}
             geometry = None
+            limited_data = False
+            
             if res2.get("features"):
                 feature = res2["features"][0]
                 parcel_data = {k.lower(): v for k, v in feature["attributes"].items()}
                 geometry = feature.get("geometry")
-            
-            if not parcel_data:
-                return {"error": "PIN not found in Layer 2 (Technical Source)"}
+            else:
+                limited_data = True # No Seattle Technical Data found
 
             # 3. Fetch Authoritative Current Zoning Labels (Layer 1) via Spatial Intersection
             zoning_auth = None
@@ -78,9 +81,10 @@ class ArchitecturalFetcher:
 
             # Merge the "Hybrid Truth"
             hybrid_record = {**parcel_data, **base_data}
+            hybrid_record["limited_data"] = limited_data
             
             # Map standardized zoning labels
-            hybrid_record["zoning_current"] = zoning_auth or "UNKNOWN"
+            hybrid_record["zoning_current"] = zoning_auth or base_data.get("base_zoning") or "UNKNOWN"
             hybrid_record["zoning_legacy"] = parcel_data.get("zoning")
             hybrid_record["zoning_base"] = base_data.get("base_zoning")
             
@@ -88,9 +92,9 @@ class ArchitecturalFetcher:
             if zoning_auth:
                 hybrid_record["zoning_provenance"] = "Layer 1 (Authoritative Spatial Intersection)"
             elif base_data.get("base_zoning"):
-                hybrid_record["zoning_provenance"] = "Layer 0 (Centroid Base Backup)"
+                hybrid_record["zoning_provenance"] = "Layer 0 (King County Base Record)"
             else:
-                hybrid_record["zoning_provenance"] = "Layer 2 (Warning: Legacy Only)"
+                hybrid_record["zoning_provenance"] = "Inferred via System"
 
             return hybrid_record
         except Exception as e:

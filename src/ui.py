@@ -48,6 +48,10 @@ if st.button("Run Analysis"):
         with st.spinner("📊 Pulling City Records..."):
             st.session_state.city_data = fetcher.fetch_architectural_data(st.session_state.pin)
         
+        # Display Limited Data Warning for non-Seattle properties
+        if st.session_state.city_data.get("limited_data"):
+            st.warning("⚠️ **Limited Data Mode**: This property is located outside the City of Seattle. Deep technical capacity data (FAR, lot coverage, etc.) is currently restricted to Seattle's municipal bounds. Gemini 3 will perform a general residential audit based on King County records.")
+
         with st.spinner("🧠 Auditing Neighborhood Residential Codes..."):
             st.session_state.audit_result = analyze_parcel(st.session_state.city_data)
 
