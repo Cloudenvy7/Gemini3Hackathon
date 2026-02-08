@@ -43,6 +43,17 @@
 * **Innovation:** Built a 8-block mapping engine that organizes data into logical architectural sections.
 * **The "Zero Loss" Feed:** Section 7 now automatically "decompresses" every unmapped field from the technical dataset into a raw feed, ensuring the architect has 100% of the available data.
 
+## 🛠️ Technical Specifications
+
+### 🛠️ Resiliency: "The Investigator"
+When a PIN lookup fails due to a "Killed Parcel," the system triggers **The Investigator** pattern:
+* **Agentic Search:** Gemini 3 searches Zillow and Redfin to resolve the current 10-digit Parcel ID (PIN) and "resurrects" the data.
+* **Thinking Mode:** Utilizes Gemini 3's high-level reasoning to resolve complex institutional overlays (MIO) and recent rezone events.
+
+### 📊 New: Google Sheets "Single Source of Truth"
+The platform now exports a **"Decompressed" Professional Site Sheet** directly to Google Sheets, mapping our technical dataset into a human-readable Airtable-style schema.
+* **Forensic Traceability:** Every row is stamped with a **Confluent Run ID**, linking reports to the immutable back-end ledger.
+
 ---
 
 ## 🏗️ Architecture Verification: The Final "Hybrid" Stack

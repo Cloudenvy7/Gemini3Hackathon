@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+</head>
+<body>
+    <div class="mermaid">
+sequenceDiagram
+    participant U as Architect (UI)
+    participant F as Data Fetcher
+    participant G as Gemini 3 Agent
+    participant C as Confluent Cloud
+    participant S as Google Sheets
+    
+    U->>F: Initiate Parcel Audit
+    F->>F: Perform Triple-Layer Merge
+    F->>G: Provide 79-Attribute Context
+    G-->>F: Return Reasoning Trace
+    F->>C: Stream site.fetch.completed
+    U->>S: Trigger Finalize & Export
+    S-->>U: Project Bible (PIN-Tabbed)
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+</head>
+<body>
+    <div class="mermaid">
+graph TD
+    A["User Input: Address/PIN"] --> B{Investigator Mode}
+    B -->|Success| C[Layer 0: King County Base]
+    B -->|Fetch Failed| D[Gemini Search & Repair]
+    D --> C
+    C --> E[Layer 2: Seattle Technical Deep-Dive]
+    E -->|Geometry Found| F[Layer 1: Authoritative Spatial Intersection]
+    F --> G[Hybrid Truth Record]
+    E -->|Geometry Missing| H[Limited Data Mode Fallback]
+    H --> G
+    G --> I[Gemini 3 Audit Reasoning]
+    I --> J[Confluent Forensic Ledger]
+    I --> K[Google Sheets Export]
+    </div>
+</body>
+</html>

@@ -128,8 +128,8 @@ class ArchitecturalFetcher:
         block_1 = {
             "section": "1. SITE / IDENTITY",
             "rows": [
-                ["Lot Parcel # (PIN)", record.get("pin"), "Layer 2", now],
-                ["Standard Address", record.get("address") or record.get("base_address"), "Layer 0", now],
+                ["Lot Parcel # (PIN)", record.get("pin") or record.get("base_pin"), "Layer 2/0", now],
+                ["Standard Address", record.get("address") or record.get("base_address"), "Layer 0/2", now],
                 ["Lot Legal Description", record.get("legal_desc") or "Manual Entry Needed", "Layer 2 (Partial)", now],
                 ["Lot Neighborhood", record.get("uv_name") or "Outside Villages", "Layer 2", now],
                 ["Property Type", record.get("land_use_desc"), "Layer 2", now],

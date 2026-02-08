@@ -1,8 +1,12 @@
-# 🏠 Pre-Permit AI: Three-Layer Hybrid Truth
-### *Autonomous Architectural Auditing & Professional Reporting Suite*
+# 🏗️ Pre-Permit AI: The "Ghost Data" Resurrection
 
-[![Live App](https://img.shields.io/badge/Live%20App-Cloud%20Run-blue?style=for-the-badge&logo=google-cloud)](https://gemini3-seattle-permits-617957523681.us-west1.run.app)
-[![Hackathon](https://img.shields.io/badge/Gemini%203-API%20Hackathon-red?style=for-the-badge&logo=google-gemini)](https://gemini3.devpost.com/)
+### 🧬 The Evolution: A Tale of Two Sprints
+**This project is the result of an intensive "Double Down" strategy executed during the Gemini 3 Hackathon.**
+
+* **Sprint 1: The Foundation (Truth Engine)**
+    We architected a "Triple-Layer Hybrid Truth Engine" to standardize fragmented city records (Layers 0-2). (Dec 2025)
+* **Sprint 2: The Agentic Shift (The Investigator)**
+    When we discovered "Ghost Data" (retired Parcel IDs) was breaking 15% of queries, we doubled down on **Gemini 3 Flash**. We moved beyond simple API calls to build an **autonomous forensic agent** capable of "thinking" through data conflicts and "resurrecting" dead records via live web search. (Jan 2026)
 
 ---
 
