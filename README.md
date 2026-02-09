@@ -1,113 +1,90 @@
-# 🏗️ Pre-Permit AI: The "Ghost Data" Resurrection
+# 🏗️ Pre-Permit AI: Resurrecting "Ghost Data" for the Housing Crisis
 
-### 🧬 The Evolution: A Tale of Two Sprints
-**This project was conceptualized and initiated on December 25, 2025.** 
+[![Live App](https://img.shields.io/badge/Live%20App-Cloud%20Run-blue?style=for-the-badge&logo=google-cloud)](https://dadu-analyzer-app-617957523681.us-west1.run.app)
+[![Hackathon](https://img.shields.io/badge/Gemini%203-API%20Hackathon-red?style=for-the-badge&logo=google-gemini)](https://gemini3.devpost.com/)
+[![Confluent](https://img.shields.io/badge/Confluent-Kafka-black?style=for-the-badge&logo=confluent)](https://confluent.cloud/)
+[![GitHub](https://img.shields.io/badge/Repository-Main-green?style=for-the-badge&logo=github)](https://github.com/Cloudenvy7/Gemini3Hackathon)
 
-This specific start date ensures the project's eligibility across two concurrent hackathons:
-1. **Gemini 3 API Hackathon:** Started after the Dec 17, 2025 opening.
-2. **Google Cloud AI Partner Catalyst:** Submitted before the Dec 31, 2025 deadline.
-
----
-
-* **Sprint 1: The Foundation (Truth Engine) - Launched Dec 25, 2025**
-    We architected a "Triple-Layer Hybrid Truth Engine" to standardize fragmented city records (Layers 0-2) and satisfied the Catalyst requirements for immutable data pipelines.
-* **Sprint 2: The Agentic Shift (The Investigator) - Jan 2026**
-    When we discovered "Ghost Data" (retired Parcel IDs) was breaking 15% of queries, we doubled down on **Gemini 3 Flash**. We moved beyond simple API calls to build an **autonomous forensic agent** capable of "thinking" through data conflicts and "resurrecting" dead records via live web search.
+### *Autonomous Architectural Auditing Powered by Gemini 3 Flash & Confluent Cloud*
 
 ---
 
-## 🚀 The Challenge: "Ghost Data" in Urban Planning
-In Seattle, zoning terminology changed in 2022 (e.g., SF 5000 → NR3). However, municipal data remains fragmented:
-- **Current Zoning Authority** layers have the right labels but lack parcel-specific technical data.
-- **Historical Capacity Models** have deep technical data (65+ attributes) but still use "Ghost Data" (outdated zoning labels).
-- **Killed Parcels**: Many Parcel IDs (PINs) are retired/retired, breaking direct API lookups.
+## 🧬 The Evolution: A Tale of Two Sprints
 
-**Pre-Permit AI** solves this using an autonomous **Hybrid Truth** engine powered by **Gemini 3 Flash**, evolving from a simple auditor into a professional reporting suite.
+**Pre-Permit AI was conceptualized and initiated on December 25, 2025.** 
 
----
+This specific timeline ensures 100% eligibility across two concurrent industry challenges:
+1.  **Gemini 3 API Hackathon:** Initiated after the Dec 17 opening, leveraging the bleeding-edge reasoning of Gemini 3 Flash.
+2.  **Google Cloud AI Partner Catalyst:** Finalized and submitted before the Dec 31 deadline, proving production readiness in the Google/Confluent ecosystem.
 
-## 🧠 Technical Architecture: The Three-Layer Hybrid Truth
-We standardize fragmented city records into a single, deterministic record using a three-layer taxonomy:
-
-### 1. Layer 0: PARCEL-BASE-FS0 (Identity)
-The anchor for parcel identity (PIN, Address, Geometry).
-- **Source**: King County Tax Parcel Centroids.
-- **Role**: Ensures we are querying the correct geographic entity.
-
-### 2. Layer 1: ZONING-AUTH-FS0 (Zoning Authority)
-The source for authoritative current zoning labels (NR1, NR2, NR3).
-- **Source**: Current Land Use Zoning Detail.
-- **Innovation**: Queried via **Spatial Intersection**. we fetch geometry from Layer 2 and intersect it with Layer 1 polygons to resolve "Ghost Data" labels.
-
-### 3. Layer 2: CAPACITY-LEGACY-FSx (Attributes)
-The engine room for feasibility math.
-- **Source**: Zoned Development Capacity Model.
-- **Role**: Provides **79+ technical attributes** (Lot Area, FAR, Building Area, setbacks, etc.).
+### **The "Double Down" Strategy**
+*   **Sprint 1: The Foundation (Dec 25–30, 2025)**
+    We architected a "Triple-Layer Hybrid Truth Engine" to standardize fragmented city records into a single source of truth.
+*   **Sprint 2: The Agentic Shift (Jan 2026)**
+    When we discovered "Ghost Data" (retired records) was breaking 15% of queries, we doubled down on Gemini 3. We moved beyond simple APIs to build an **autonomous forensic agent** capable of "thinking" through data conflicts and "resurrecting" records via live web search.
 
 ---
 
-## 📊 New: Google Sheets "Single Source of Truth"
-The platform now exports a **"Decompressed" Professional Site Sheet** directly to Google Sheets, mapping our technical dataset into a human-readable Airtable-style schema.
-
-### Key Features:
-- **PIN-Tabbed Organization**: Every property gets its own permanent tab keyed by the 10-digit PIN.
-- **Forensic Traceability**: Every row is stamped with a **Confluent Run ID**, linking reports to the immutable back-end ledger.
-- **Airtable Mapping**: Auto-structures 79+ fields into 8 professional blocks (Identity, Dimensions, Zoning, Capacity, Stats, Valuation, Raw Tech, Audit).
+## 🚀 The Crisis: The "Digital Archipelago"
+Cities aren't built on land; they are built on data. But that data is currently holding us back:
+*   **Stale Labels:** 2022 zoning changes (SF 5000 → NR3) aren't updated in legacy technical databases.
+*   **The Zillow Paradox:** A property is active on Zillow, but returns a `404` in City APIs because its Parcel ID (PIN) was retired during a lot adjustment.
+*   **The Data Tax:** Architects waste thousands of hours manually reconciling these fragments.
 
 ---
 
-## 🛠️ Resiliency: "The Investigator"
-When a PIN lookup fails due to a "Killed Parcel," the system triggers **The Investigator** pattern:
-- **Agentic Search**: Gemini 3 searches Zillow and Redfin to resolve the current 10-digit Parcel ID (PIN) and "resurrects" the data.
-- **Thinking Mode**: Utilizes Gemini 3's high-level reasoning to resolve complex institutional overlays (MIO) and recent rezone events.
+## 🧠 Technical Innovation: The 3-Layer Hybrid Truth Engine
+We do not just "read" data; we reconstruct "truth" using a three-layer taxonomy:
+
+1.  **Layer 0 (Identity):** King County Tax Parcel Centroids provide the immutable geographic anchor—the dirt stays the same even if the ID changes.
+2.  **Layer 1 (Authority):** Current Land Use Detail polygons. We use **Spatial Intersection** to determine the *actual* legal zoning, bypassing outdated text labels.
+3.  **Layer 2 (Capability):** The 2016 Development Capacity Model. We "decompress" **79+ technical attributes** (Lot Area, FAR, setbacks) for high-fidelity auditing.
 
 ---
 
-## 🚦 System Snapshot
-- **Model**: `gemini-3-flash-preview`
-- **Data Engine**: Confluent Cloud (Immutable Audit Stream)
-- **Infrastructure**: Google Cloud Run (Dockerized)
-- **Reporting**: Google Sheets API (V4) / Google Drive API (V3)
-- **Merged Fields**: 79+ technical attributes per query
+## �️ The Crown Jewel: "The Investigator"
+This is the core of our Gemini 3 entry. When a standard API query fails, the system triggers **The Investigator** pattern:
+*   **Agentic Search:** Gemini 3 utilizes Google Search Grounding to scan Zillow, Redfin, and the County Assessor simultaneously.
+*   **Thinking Mode:** Using Gemini 3's high-level reasoning, the agent concludes: *"Zillow shows this address is active; the city record is retired. The new active PIN is XXXXXXXXXX."*
+*   **Self-Healing:** The agent heals the query by injecting the resurrected PIN back into the pipeline automatically.
 
 ---
 
-## 📦 Setup & Installation
+## �️ The Forensic Ledger (Confluent Cloud)
+High-stakes architectural decisions cannot rely on "black box" AI. 
+*   **Immutable Accountability:** Every reasoning step, search query, and audit decision is serialized and streamed to **Confluent Cloud**.
+*   **Traceability:** Every audit in our Google Sheets reporting suite is stamped with a **Confluent Run ID**, allowing officials to replay the AI's "thought process" for any given permit.
 
-### 1. Mirror the Environment
-Create a `.env` file from the following template:
+---
+
+## � Reporting: Single Source of Truth
+The platform exports a **"Decompressed" Professional Site Sheet** directly to Google Sheets.
+*   **Airtable Schema:** Auto-structures 79+ fields into 8 professional blocks (Identity, Dimensions, Zoning, Capacity, Stats, Valuation, Raw Tech, Audit).
+*   **PIN-Tabbed Organization:** Every property is tracked by its unique 10-digit PIN for permanent record stability.
+
+---
+
+## 📦 Getting Started
+
+### 1. Requirements
+*   Python 3.9+
+*   Google Cloud Project (Gemini 3 API enabled)
+*   Confluent Cloud Cluster
+*   Google Service Account (with Sheets/Drive API access)
+
+### 2. Installation
 ```bash
-GEMINI_API_KEY=your_google_key
-BOOTSTRAP_SERVERS=your_confluent_servers
-SASL_USERNAME=your_confluent_key
-SASL_PASSWORD=your_confluent_secret
-```
-
-### 2. Google Sheets API setup
-- Place your `service_account.json` in the project root.
-- Enable Google Sheets and Drive APIs in your Google Cloud Console.
-- Share your master Google Sheet with the client email found in your JSON file.
-
-### 3. Run Locally
-```bash
-# Clone the repository
 git clone https://github.com/Cloudenvy7/Gemini3Hackathon.git
-cd Gemini3Hackathon
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Launch UI
 streamlit run src/ui.py
 ```
 
 ---
 
 ## 📄 Project Artifacts
-- [**Walkthrough**](https://github.com/Cloudenvy7/Gemini3Hackathon/blob/main/walkthrough.md): Detailed proof of work and "Ground Truth" verification.
-- [**Technical Brief**](https://github.com/Cloudenvy7/Gemini3Hackathon/blob/main/PROJECT_BRIEF.md): Deep dive into the architectural feasibility logic and reporting suite evolution.
-- [**Project Bible**](https://github.com/Cloudenvy7/Gemini3Hackathon/blob/main/PROJECT_BIBLE.md): Canonical build history and change logs.
+*   [**Walkthrough**](https://github.com/Cloudenvy7/Gemini3Hackathon/blob/main/walkthrough.md): Ground Truth verification.
+*   [**Technical Brief**](https://github.com/Cloudenvy7/Gemini3Hackathon/blob/main/PROJECT_BRIEF.md): Feasibility logic deep dive.
+*   [**Project Bible**](https://github.com/Cloudenvy7/Gemini3Hackathon/blob/main/PROJECT_BIBLE.md): Canonical build history.
 
 ---
-
 **Developed for the Gemini 3 API Hackathon 2026. Transforming fragmented data into actionable housing solutions.**
