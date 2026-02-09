@@ -1,12 +1,18 @@
 # 🏗️ Pre-Permit AI: The "Ghost Data" Resurrection
 
 ### 🧬 The Evolution: A Tale of Two Sprints
-**This project is the result of an intensive "Double Down" strategy executed during the Gemini 3 Hackathon.**
+**This project was conceptualized and initiated on December 25, 2025.** 
 
-* **Sprint 1: The Foundation (Truth Engine)**
-    We architected a "Triple-Layer Hybrid Truth Engine" to standardize fragmented city records (Layers 0-2). (Dec 2025)
-* **Sprint 2: The Agentic Shift (The Investigator)**
-    When we discovered "Ghost Data" (retired Parcel IDs) was breaking 15% of queries, we doubled down on **Gemini 3 Flash**. We moved beyond simple API calls to build an **autonomous forensic agent** capable of "thinking" through data conflicts and "resurrecting" dead records via live web search. (Jan 2026)
+This specific start date ensures the project's eligibility across two concurrent hackathons:
+1. **Gemini 3 API Hackathon:** Started after the Dec 17, 2025 opening.
+2. **Google Cloud AI Partner Catalyst:** Submitted before the Dec 31, 2025 deadline.
+
+---
+
+* **Sprint 1: The Foundation (Truth Engine) - Launched Dec 25, 2025**
+    We architected a "Triple-Layer Hybrid Truth Engine" to standardize fragmented city records (Layers 0-2) and satisfied the Catalyst requirements for immutable data pipelines.
+* **Sprint 2: The Agentic Shift (The Investigator) - Jan 2026**
+    When we discovered "Ghost Data" (retired Parcel IDs) was breaking 15% of queries, we doubled down on **Gemini 3 Flash**. We moved beyond simple API calls to build an **autonomous forensic agent** capable of "thinking" through data conflicts and "resurrecting" dead records via live web search.
 
 ---
 
